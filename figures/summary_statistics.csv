@@ -1,21 +1,37 @@
 quantity,value,unit
 sector,51,TESS sector
 period_days,4.0552941,days; NASA Exoplanet Archive
-duration_hours,2.8032,hours; NASA Exoplanet Archive
+published_duration_hours,2.8032,hours; NASA Exoplanet Archive
+a_over_rstar,11.0561714164,fixed from saved a and stellar radius
+limb_darkening_u1,0.34,fixed quadratic coefficient
+limb_darkening_u2,0.21,fixed quadratic coefficient
 quality_filtered_cadences,8033,count
 symmetric_outliers_clipped,0,count
-n_points,1362,
-n_in_transit,252,
-n_out_of_transit,1110,
-depth_ppm,16866.5882671,
-depth_error_ppm,177.201796942,
-depth_snr,95.1829414719,
-chi_square_flat,13513.1948935,
-dof_flat,1361,
-p_value_flat,0,
-chi_square_box,4453.40254627,
-dof_box,1360,
-p_value_box,0,
-delta_chi_square,9059.79234724,
-delta_dof,1,
+n_points,1572,
+n_in_transit,260,
+n_out_of_transit,1312,
+depth_ppm,23024.9172068,
+depth_error_ppm,219.732500055,
+depth_snr,104.786124952,
+formal_depth_error_ppm,219.038334571,
+reduced_chi_square,1.00634834485,
+radius_ratio,0.143884709282,
+radius_ratio_error,0.000754021795081,
+impact_parameter,0.501252670658,
+impact_parameter_error,0.00910870094933,
+timing_shift_hours,-0.360356412822,
+timing_error_minutes,0.395032793008,
+fitted_duration_hours,2.88826699223,
+chi_square_null,13993.7185355,
+dof_null,1570,
+p_value_null,0,
+chi_square_transit,1576.94785638,
+dof_transit,1567,
+p_value_transit,0.424958251628,
+delta_chi_square,12416.7706791,
+delta_dof,3,
 p_value_improvement,0,
+bic_null,14008.4387434,
+bic_transit,1613.74837625,
+delta_bic,12394.6903672,
+transit_supported,True,
