@@ -20,6 +20,8 @@ ephemeris; one reproducible flat-versus-box statistical comparison.
 ```bash
 pip install -r requirements.txt
 python scripts/analyze_transit.py
+python scripts/analyze_multisector.py
+python scripts/analyze_spectrum.py
 pytest tests/ -v
 ```
 
@@ -42,6 +44,30 @@ a two-level box whose depth is fitted. Timing and duration are not searched.
 The fixed-window box improves strongly on a flat light curve for these data. This establishes only how these archived fluxes compare with this
 pre-specified box model. It does not independently confirm the planet or identify
 an atmosphere.
+
+<!-- MULTISECTOR-UPGRADE-START -->
+## Multi-sector robustness and correlated noise
+
+The fixed archive ephemeris was fitted independently in 1 usable sector(s) (S51). Formal depth errors were inflated by sqrt(max(reduced chi-square, 1)) times the residual time-averaging beta factor (observed range 3.40-3.40). The robust inverse-variance depth is 16866.6 +/- 1091.0 ppm; a sector-to-sector Q test requires at least two usable sectors. These scaled errors address underestimated scatter and short-timescale correlation, but they are not a full Gaussian-process or physical limb-darkened transit fit.
+
+<p align="center"><img src="figures/wasp39b_multisector_transits.png" alt="Independent sector transit fits for WASP-39 b" width="760"></p>
+
+<p align="center"><img src="figures/wasp39b_depth_consistency.png" alt="Sector depth consistency for WASP-39 b" width="760"></p>
+
+<p align="center"><img src="figures/wasp39b_noise_diagnostics.png" alt="Residual RMS time-averaging diagnostic for WASP-39 b" width="760"></p>
+
+The per-sector table is in [`figures/multisector_statistics.csv`](figures/multisector_statistics.csv). Regenerate all three figures with `python scripts/analyze_multisector.py`.
+<!-- MULTISECTOR-UPGRADE-END -->
+
+<!-- SPECTRUM-UPGRADE-START -->
+## Published planetary spectrum
+
+<p align="center"><img src="figures/wasp39b_published_spectrum.png" alt="Published transmission spectrum of WASP-39 b" width="760"></p>
+
+Across 94 bins, a weighted-flat spectrum gives chi-square/dof = 1089.6/93 (p = 1.06e-169). The full and no-CO2 published model variants are compared after fitting one common vertical offset. This diagnostic establishes spectral structure; by itself it is not a molecule-detection or retrieval calculation.
+
+Source: [10.5281/zenodo.6959427](https://zenodo.org/records/6959427) (JWST NIRSpec PRISM). Exact files and checksums are in [`data/SOURCE.md`](data/SOURCE.md); complete numerical results are in [`figures/spectrum_statistics.csv`](figures/spectrum_statistics.csv).
+<!-- SPECTRUM-UPGRADE-END -->
 
 ## System context
 

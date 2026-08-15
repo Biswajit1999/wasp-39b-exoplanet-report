@@ -27,3 +27,20 @@ not make it free of residual stellar or instrumental systematics.
 
 The saved row is the input actually used by `scripts/analyze_transit.py`; the
 analysis does not query a changing live service at run time.
+
+
+## Additional TESS sectors for robustness analysis
+
+All are unmodified standard-cadence SPOC light curves from the same [MAST TESS collection](https://doi.org/10.17909/t9-nmc8-f686).
+
+- Sector 51: `tess2022112184951-s0051-0000000181949561-0223-s_lc.fits` (1,800,000 bytes)
+  - MAST URI: `mast:TESS/product/tess2022112184951-s0051-0000000181949561-0223-s_lc.fits`
+  - SHA-256: `dc75775fde0187da7f058354635a90529e59128ecbfe683112024ad3e0c04ce8`
+
+## Published planetary spectrum
+
+- Archive record: [10.5281/zenodo.6959427](https://zenodo.org/records/6959427)
+- Data type: transmission; instrument: JWST NIRSpec PRISM
+- `data/spectra/eureka_transmission_spectrum.txt` — SHA-256 `18ab790d131d28f4ad97d5a19dc3c5787ecc12269685823bbfd0d38dfe8619a8`
+- `data/spectra/scchimeramodel.txt` — SHA-256 `45d014400577a5208f9f699a7811c0cc95aeb2c4f308583db9e90297f35cca1d`
+- `data/spectra/scchimeramodel_no_co2.txt` — SHA-256 `7d41ab15efb4350ecce93f7e646d86cf4bd0fdab559f567d8e3dac51374ff004`
