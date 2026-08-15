@@ -1,10 +1,20 @@
-# WASP-39 b — Real TESS Transit Report
+# WASP-39 b: Carbon Dioxide in a Puffy Hot Saturn
 
+<!-- TARGET-IDENTITY-START -->
+<p align="center">
+  <img src="assets/artist_concept.webp" alt="Artist's interpretation of WASP-39 b near its host star" width="900">
+</p>
+
+<p align="center"><em>AI-generated artist's interpretation informed by the measured system properties; not a direct image.</em></p>
+
+**Hot Saturn · transmission spectroscopy · JWST + TESS**
+
+A low-density hot Saturn whose atmosphere became the first clear JWST exoplanet carbon-dioxide benchmark, paired here with a timing-adjusted TESS transit fit and a public NIRSpec spectrum.
+<!-- TARGET-IDENTITY-END -->
 <p align="center">
   <img src="figures/wasp39b_tess_transit.png" alt="Phase-folded real TESS transit light curve of WASP-39 b" width="760">
 </p>
 
-One real public TESS SPOC light curve; one historical NASA Exoplanet Archive ephemeris; one timing-adjusted, limb-darkened transit fit.
 
 **[Open the full report](https://biswajit1999.github.io/wasp-39b-exoplanet-report/)** — the live GitHub Pages version.
 
@@ -21,6 +31,7 @@ pip install -r requirements.txt
 python scripts/analyze_transit.py
 python scripts/analyze_multisector.py
 python scripts/analyze_spectrum.py
+python scripts/analyze_atmospheric_evidence.py
 pytest tests/ -v
 ```
 
@@ -66,6 +77,24 @@ Across 94 bins, a weighted-flat spectrum gives chi-square/dof = 1089.6/93 (p = 1
 
 Source: [10.5281/zenodo.6959427](https://zenodo.org/records/6959427) (JWST NIRSpec PRISM). Exact files and checksums are in [`data/SOURCE.md`](data/SOURCE.md); complete numerical results are in [`figures/spectrum_statistics.csv`](figures/spectrum_statistics.csv).
 <!-- SPECTRUM-UPGRADE-END -->
+
+<!-- ATMOSPHERE-EVIDENCE-START -->
+## Atmospheric evidence: detection, limit, or unknown?
+
+<p align="center"><img src="figures/molecular_evidence.png" alt="Source-graded atmospheric evidence for WASP-39 b" width="820"></p>
+
+The repository's direct calculation shows strong spectral structure and a large preference for the supplied full ScCHIMERA model over its no-CO2 counterpart after one fitted vertical offset. Detection significances below come from the cited peer-reviewed NIRSpec/G395H retrieval, not from converting that diagnostic Δχ² into sigma.
+
+| Species | Status | Evidence | Basis |
+|---|---|---|---|
+| CO2 | reported detection | 28.5 sigma | peer-reviewed retrieval |
+| H2O | reported detection | 21.5 sigma | peer-reviewed retrieval |
+| SO2 | reported evidence | 4.8 sigma | peer-reviewed interpretation |
+| CO2 model sensitivity | repository diagnostic | Delta chi-square = 774.8 | full versus no-CO2 supplied models; not a retrieval |
+| O2 | no evidence | not reported | oxygen-bearing molecules do not imply molecular oxygen |
+
+Primary source: [Alderson et al. 2023, Nature](https://doi.org/10.1038/s41586-022-05591-3). The table is also available as [`data/atmospheric_evidence.csv`](data/atmospheric_evidence.csv). Oxygen-bearing species such as H2O, CO2, and SO2 are **not** evidence for molecular oxygen (O2) or a biosignature.
+<!-- ATMOSPHERE-EVIDENCE-END -->
 
 ## System context
 

@@ -1,0 +1,6 @@
+species,status,evidence,basis,source_label,source_url
+CO2,reported detection,28.5 sigma,peer-reviewed retrieval,"Alderson et al. 2023, Nature",https://doi.org/10.1038/s41586-022-05591-3
+H2O,reported detection,21.5 sigma,peer-reviewed retrieval,"Alderson et al. 2023, Nature",https://doi.org/10.1038/s41586-022-05591-3
+SO2,reported evidence,4.8 sigma,peer-reviewed interpretation,"Alderson et al. 2023, Nature",https://doi.org/10.1038/s41586-022-05591-3
+CO2 model sensitivity,repository diagnostic,Delta chi-square = 774.8,full versus no-CO2 supplied models; not a retrieval,"Alderson et al. 2023, Nature",https://doi.org/10.1038/s41586-022-05591-3
+O2,no evidence,not reported,oxygen-bearing molecules do not imply molecular oxygen,"Alderson et al. 2023, Nature",https://doi.org/10.1038/s41586-022-05591-3
