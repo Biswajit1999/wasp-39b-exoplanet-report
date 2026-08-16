@@ -39,6 +39,7 @@ python scripts/analyze_transit.py
 python scripts/analyze_multisector.py
 python scripts/analyze_spectrum.py
 python scripts/analyze_atmospheric_evidence.py
+python scripts/analyze_spectral_robustness.py
 pytest tests/ -v
 ```
 
@@ -103,6 +104,28 @@ The repository's direct calculation shows strong spectral structure and a large 
 Primary source: [Alderson et al. 2023, Nature](https://doi.org/10.1038/s41586-022-05591-3). The table is also available as [`data/atmospheric_evidence.csv`](data/atmospheric_evidence.csv). Oxygen-bearing species such as H2O, CO2, and SO2 are **not** evidence for molecular oxygen (O2) or a biosignature.
 <!-- ATMOSPHERE-EVIDENCE-END -->
 
+## Is the supplied CO2-sensitive comparison robust?
+
+<p align="center"><img src="figures/wasp39b_spectral_robustness.png" alt="Binning, covariance, and leave-one-bin robustness tests for the WASP-39 b spectrum" width="900"></p>
+
+The original report compared the public spectrum with the supplied full and no-CO2 ScCHIMERA models after fitting one vertical offset. The new analysis asks whether that preference is concentrated in one bin or disappears under reasonable presentation choices.
+
+| Stress test | Delta chi-square (no CO2 - full) |
+|---|---:|
+| Original 94 bins | 774.8 |
+| Delete the most influential single bin | 685.0 |
+| Rebin by a factor of 8 | 596.1 |
+| Add correlated covariance with amplitude equal to the median error and 0.10 micron length | 135.1 |
+| Same amplitude with 0.25 micron length | 138.5 |
+
+The 4.1–4.6 micron interval contributes 691.4 of the original Delta chi-square, correctly localizing most of the discrimination to the broad 4.3-micron CO2 band. Yet no individual point creates the result: every leave-one-bin-out comparison remains above 685. The preference also retains the same sign after aggressive rebinning and two deliberately conservative correlated-noise stress tests.
+
+These numbers are **not detection significances**. The two supplied forward models are not a complete nested retrieval, the covariance models are illustrative rather than inferred from detector-level residuals, and the atmospheric parameters were not marginalized. Peer-reviewed retrievals remain the source for molecular significance and abundance.
+
+For physical scale, the saved mass, radius, equilibrium temperature, and stellar radius imply surface gravity **4.26 m s-2** and an illustrative H2/He scale height of **983 km** for mean molecular weight 2.3. One scale height changes the transit depth by approximately **421 ppm**; the spectrum's robust 5th-to-95th-percentile range is **1,487 ppm**, or **3.53 scale heights** under that assumption. This describes observability, not composition by itself.
+
+The complete stress-test table is [`figures/spectral_robustness_statistics.csv`](figures/spectral_robustness_statistics.csv), and every wavelength-bin contribution is in [`figures/spectral_bin_contributions.csv`](figures/spectral_bin_contributions.csv).
+
 ## System context
 
 - Radius: 14.34 Earth radii
@@ -121,6 +144,9 @@ Primary source: [Alderson et al. 2023, Nature](https://doi.org/10.1038/s41586-02
 - Midpoint freedom corrects accumulated ephemeris error but introduces a bounded timing search. ΔBIC, not a naïve one-parameter p-value, is used as the support gate.
 - PDCSAP processing, dilution, stellar variability, transit-timing variations, and long-timescale covariance can still bias the inferred geometry.
 - Radius ratio, impact parameter, and fixed limb darkening are correlated. Published global fits with physical priors and simultaneous detrending remain authoritative.
+- The full/no-CO2 comparison uses two archived forward models with one fitted offset. It does not marginalize temperature, metallicity, clouds, chemistry, instrument systematics, or limb asymmetry.
+- The correlated-noise kernels are explicit sensitivity experiments, not covariance matrices estimated from the original time-series reduction.
+- The scale-height conversion assumes equilibrium temperature and mean molecular weight 2.3; both are model-dependent terminator approximations.
 
 ## Repository structure
 
@@ -130,6 +156,7 @@ index.html
 requirements.txt
 data/                       unmodified TESS FITS + NASA row + SOURCE.md
 scripts/analyze_transit.py  timing-adjusted limb-darkened transit fit
+scripts/analyze_spectral_robustness.py  binning, jackknife, covariance + scale-height tests
 figures/                    generated plot + summary_statistics.csv
 tests/                      real-data regression tests
 .github/workflows/tests.yml CI on every push and pull request
@@ -142,6 +169,8 @@ LICENSE                     MIT
 2. Ricker, G. R. et al. (2015), *Transiting Exoplanet Survey Satellite (TESS)*, JATIS 1, 014003, [doi:10.1117/1.JATIS.1.1.014003](https://doi.org/10.1117/1.JATIS.1.1.014003).
 3. TESS Team, *TESS Light Curves — All Sectors*, MAST, [doi:10.17909/t9-nmc8-f686](https://doi.org/10.17909/t9-nmc8-f686); Sector 51 used here.
 4. [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/), `pscomppars` TAP row retrieved 2026-08-15.
+5. JWST Transiting Exoplanet Community Early Release Science Team (2023), *Identification of carbon dioxide in an exoplanet atmosphere*, [doi:10.1038/s41586-022-05269-w](https://doi.org/10.1038/s41586-022-05269-w).
+6. Alderson, L. et al. (2023), *Early Release Science of the exoplanet WASP-39b with JWST NIRSpec G395H*, [doi:10.1038/s41586-022-05591-3](https://doi.org/10.1038/s41586-022-05591-3).
 
 ## Author
 
