@@ -40,7 +40,23 @@ All are unmodified standard-cadence SPOC light curves from the same [MAST TESS c
 ## Published planetary spectrum
 
 - Archive record: [10.5281/zenodo.6959427](https://zenodo.org/records/6959427)
+- Archive object: `JWST_ERS_1st_LOOK_PAPER_DATA.zip` (375,091 bytes)
+- Archive MD5 (as served by Zenodo): `578368eb0c86014462f109d1e8699693`
 - Data type: transmission; instrument: JWST NIRSpec PRISM
-- `data/spectra/eureka_transmission_spectrum.txt` — SHA-256 `18ab790d131d28f4ad97d5a19dc3c5787ecc12269685823bbfd0d38dfe8619a8`
-- `data/spectra/scchimeramodel.txt` — SHA-256 `45d014400577a5208f9f699a7811c0cc95aeb2c4f308583db9e90297f35cca1d`
-- `data/spectra/scchimeramodel_no_co2.txt` — SHA-256 `7d41ab15efb4350ecce93f7e646d86cf4bd0fdab559f567d8e3dac51374ff004`
+- Retrieved and audited: 2026-09-24
+
+| Committed path | Original ZIP entry | Committed SHA-256 | Original-entry SHA-256 |
+|---|---|---|---|
+| `data/spectra/eureka_transmission_spectrum.txt` | `ZENODO/TRANSMISSION_SPECTRA_DATA/EUREKA_REDUCTION.txt` | `976abf995f100ed34cd1fc0f94f777b0806a068896a2ed0510815a522594c243` | `18ab790d131d28f4ad97d5a19dc3c5787ecc12269685823bbfd0d38dfe8619a8` |
+| `data/spectra/scchimeramodel.txt` | `ZENODO/MODEL_FITS/ScCHIMERA_MODEL.txt` | `9a376a2e2b966b0b8280906e8d559fb611b93deceb7e6a28549cf65b1eb6cec8` | `45d014400577a5208f9f699a7811c0cc95aeb2c4f308583db9e90297f35cca1d` |
+| `data/spectra/scchimeramodel_no_co2.txt` | `ZENODO/MODEL_FITS/ScCHIMERA_MODEL_noCO2.txt` | `176aefe865b59c30998af820fecc7c53683769532156bd68098285bda3ae0ef4` | `7d41ab15efb4350ecce93f7e646d86cf4bd0fdab559f567d8e3dac51374ff004` |
+
+The decoded lines match the named archive entries exactly. The committed byte
+hashes differ only because the checkout uses CRLF line endings while the ZIP
+entries use LF. `python scripts/verify_data_provenance.py` verifies both the
+committed bytes and the LF-normalized archive identity without network access.
+
+The archive README describes the ScCHIMERA files as best-fitting spectra and
+the `noCO2` file as a “remove one gas at a time” spectrum used for its Figure 3.
+That makes the repository comparison a sensitivity diagnostic between supplied
+curves, not an independently reproduced retrieval or a nested hypothesis test.
