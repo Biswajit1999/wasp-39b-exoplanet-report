@@ -9,5 +9,5 @@ import verify_data_provenance as provenance
 def test_committed_spectra_match_local_and_archive_checksums():
     rows = provenance.verify()
     assert len(rows) == 3
-    assert all(row["local_ok"] for row in rows)
+    assert all(row["checkout_ok"] for row in rows)
     assert all(row["archive_content_ok"] for row in rows)

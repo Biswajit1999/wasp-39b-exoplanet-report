@@ -7,8 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SPECTRA = ROOT / "data" / "spectra"
 
-# Local byte hash and canonical-LF archive-entry hash. Git/Windows converted
-# the three text files from LF to CRLF; their decoded lines are unchanged.
+# Windows CRLF working-tree hash and canonical-LF Git/archive-entry hash.
+# Linux checkouts retain LF; Windows checkouts may convert to CRLF.
 EXPECTED = {
     "eureka_transmission_spectrum.txt": (
         "976abf995f100ed34cd1fc0f94f777b0806a068896a2ed0510815a522594c243",
@@ -29,18 +29,20 @@ def verify() -> list[dict[str, object]]:
     rows = []
     for filename, (local_expected, archive_expected) in EXPECTED.items():
         raw = (SPECTRA / filename).read_bytes()
-        local_actual = hashlib.sha256(raw).hexdigest()
+        checkout_actual = hashlib.sha256(raw).hexdigest()
         canonical = raw.replace(b"\r\n", b"\n")
         archive_actual = hashlib.sha256(canonical).hexdigest()
-        rows.append({"file": filename, "local_ok": local_actual == local_expected,
+        rows.append({"file": filename,
+                     "checkout_ok": checkout_actual in {local_expected, archive_expected},
                      "archive_content_ok": archive_actual == archive_expected,
-                     "local_sha256": local_actual, "canonical_lf_sha256": archive_actual})
+                     "checkout_sha256": checkout_actual,
+                     "canonical_lf_sha256": archive_actual})
     return rows
 
 
 if __name__ == "__main__":
     results = verify()
     for row in results:
-        print(f"{row['file']}: local={row['local_ok']} archive-content={row['archive_content_ok']}")
-    if not all(row["local_ok"] and row["archive_content_ok"] for row in results):
+        print(f"{row['file']}: checkout={row['checkout_ok']} archive-content={row['archive_content_ok']}")
+    if not all(row["checkout_ok"] and row["archive_content_ok"] for row in results):
         raise SystemExit(1)
