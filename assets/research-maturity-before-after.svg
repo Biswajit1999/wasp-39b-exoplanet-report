@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 610" role="img" aria-labelledby="title desc">
+  <title id="title">WASP-39 b research maturity before and after</title>
+  <desc id="desc">Grouped horizontal bars compare provenance 40 to 96, model validity 46 to 94, sensitivity analysis 45 to 96, claim discipline 74 to 98, reproducibility 62 to 96, and evidence interface 65 to 92.</desc>
+  <rect width="1100" height="610" fill="#f8fafb"/>
+  <style>.t{font-family:Inter,Segoe UI,sans-serif;fill:#17212b}.m{font-family:IBM Plex Mono,Consolas,monospace;fill:#607080}.g{stroke:#dce3e8;stroke-width:1}.b{fill:#b9c4cc}.a{fill:#0b7285}.v{font:700 18px IBM Plex Mono,Consolas,monospace}.l{font:600 18px Inter,Segoe UI,sans-serif}</style>
+  <text x="54" y="56" class="t" font-size="29" font-weight="700">Research maturity · evidence rubric</text>
+  <text x="54" y="87" class="m" font-size="14">Heuristic project audit · 0–100 · not peer review</text>
+  <rect x="720" y="43" width="22" height="12" class="b"/><text x="750" y="55" class="m" font-size="14">Before</text>
+  <rect x="838" y="43" width="22" height="12" class="a"/><text x="868" y="55" class="m" font-size="14">After</text>
+  <g transform="translate(300 118)">
+    <path d="M0 0V420M150 0V420M300 0V420M450 0V420M600 0V420M750 0V420" class="g"/>
+    <g class="m" font-size="12"><text x="-4" y="445">0</text><text x="142" y="445">20</text><text x="292" y="445">40</text><text x="442" y="445">60</text><text x="592" y="445">80</text><text x="735" y="445">100</text></g>
+    <g transform="translate(0 12)"><rect width="300" height="18" rx="2" class="b"/><rect y="23" width="720" height="22" rx="2" class="a"/><text x="310" y="15" class="m v">40</text><text x="730" y="41" class="t v">96</text></g>
+    <g transform="translate(0 80)"><rect width="345" height="18" rx="2" class="b"/><rect y="23" width="705" height="22" rx="2" class="a"/><text x="355" y="15" class="m v">46</text><text x="715" y="41" class="t v">94</text></g>
+    <g transform="translate(0 148)"><rect width="337.5" height="18" rx="2" class="b"/><rect y="23" width="720" height="22" rx="2" class="a"/><text x="347" y="15" class="m v">45</text><text x="730" y="41" class="t v">96</text></g>
+    <g transform="translate(0 216)"><rect width="555" height="18" rx="2" class="b"/><rect y="23" width="735" height="22" rx="2" class="a"/><text x="565" y="15" class="m v">74</text><text x="745" y="41" class="t v">98</text></g>
+    <g transform="translate(0 284)"><rect width="465" height="18" rx="2" class="b"/><rect y="23" width="720" height="22" rx="2" class="a"/><text x="475" y="15" class="m v">62</text><text x="730" y="41" class="t v">96</text></g>
+    <g transform="translate(0 352)"><rect width="487.5" height="18" rx="2" class="b"/><rect y="23" width="690" height="22" rx="2" class="a"/><text x="497" y="15" class="m v">65</text><text x="700" y="41" class="t v">92</text></g>
+  </g>
+  <g class="t l" text-anchor="end"><text x="275" y="149">Provenance</text><text x="275" y="217">Model validity</text><text x="275" y="285">Sensitivity analysis</text><text x="275" y="353">Claim discipline</text><text x="275" y="421">Reproducibility</text><text x="275" y="489">Evidence interface</text></g>
+  <text x="54" y="578" class="m" font-size="13">Evidence basis: repository state before this audit → committed v2 research pipeline</text>
+</svg>
