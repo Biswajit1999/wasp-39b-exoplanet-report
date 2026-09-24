@@ -24,6 +24,8 @@ def flat_test(values, errors):
             "p": chi2.sf(statistic, dof)}
 
 def offset_model_test(wavelength, values, errors, model_wavelength, model_values):
+    if wavelength.min() < model_wavelength.min() or wavelength.max() > model_wavelength.max():
+        raise ValueError("observed wavelengths extend beyond model support")
     model = np.interp(wavelength, model_wavelength, model_values)
     weights = 1 / errors**2
     offset = np.sum(weights * (values - model)) / np.sum(weights)
@@ -50,11 +52,21 @@ def main():
     error = .5 * (np.asarray(table["tr_depth_errneg"], float) + np.asarray(table["tr_depth_errpos"], float)) * 1e6
     flat = flat_test(depth, error)
     rows = [{"comparison": "weighted flat", **flat}]
+    raw_models = [
+        ("ScCHIMERA full", np.loadtxt(DATA / "scchimeramodel.txt")),
+        ("ScCHIMERA remove CO2", np.loadtxt(DATA / "scchimeramodel_no_co2.txt")),
+    ]
+    support_min = max(model[:, 0].min() for _, model in raw_models)
+    support_max = min(model[:, 0].max() for _, model in raw_models)
+    width = np.asarray(table["bin_width"], float)
+    supported = ((wavelength - width / 2) >= support_min) & ((wavelength + width / 2) <= support_max)
+    model_wavelength = wavelength[supported]
+    model_depth = depth[supported]
+    model_error = error[supported]
     models = []
-    for label, filename in (("ScCHIMERA full", "scchimeramodel.txt"),
-                            ("ScCHIMERA no CO2", "scchimeramodel_no_co2.txt")):
-        model = np.loadtxt(DATA / filename)
-        fit = offset_model_test(wavelength, depth, error, model[:, 0], model[:, 1] * 1e6)
+    for label, model in raw_models:
+        fit = offset_model_test(model_wavelength, model_depth, model_error,
+                                model[:, 0], model[:, 1] * 1e6)
         rows.append({"comparison": label + " + fitted vertical offset",
                      **{key: value for key, value in fit.items() if key != "model"}})
         models.append((label, fit["model"]))
@@ -63,12 +75,16 @@ def main():
     ax.errorbar(wavelength, depth, yerr=error, fmt="o", ms=3.2, color="#17212b",
                 ecolor="#78909c", alpha=.85, label="Eureka reduction")
     for label, values in models:
-        ax.plot(wavelength, values, lw=2, label=label + " (offset fitted)")
+        ax.plot(model_wavelength, values, lw=2, label=label + " (offset fitted)")
     ax.set(xlabel="Wavelength [micron]", ylabel="Transit depth [ppm]",
            title="WASP-39 b: published JWST NIRSpec PRISM transmission spectrum")
     ax.grid(alpha=.2); ax.legend(frameon=False, fontsize=8); fig.tight_layout()
     fig.savefig(FIGURE_FILE, dpi=190); plt.close(fig)
-    return {"flat": flat, "rows": rows, "n": len(depth)}
+    return {"flat": flat, "rows": rows, "n": len(depth),
+            "common_support_n": int(supported.sum()),
+            "excluded_model_bins": int((~supported).sum())}
 
 if __name__ == "__main__":
-    result = main(); print(f"WASP-39 b: {result['n']} spectral bins; flat-spectrum p={result['flat']['p']:.3g}")
+    result = main(); print(f"WASP-39 b: {result['n']} spectral bins, "
+                           f"{result['common_support_n']} in model comparisons; "
+                           f"flat-spectrum p={result['flat']['p']:.3g}")

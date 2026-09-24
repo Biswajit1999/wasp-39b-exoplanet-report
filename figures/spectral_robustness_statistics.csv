@@ -1,26 +1,21 @@
-quantity,value,unit
-spectral_bins,94,count
-wavelength_min,3.0085,micron
-wavelength_max,5.288,micron
-full_model_chi_square,179.207519599,one fitted offset
-no_co2_model_chi_square,953.986276968,one fitted offset
-delta_chi2_no_co2_minus_full,774.77875737,diagnostic; not retrieval sigma
-co2_window_delta_chi2,691.378075126,4.1-4.6 micron contribution
-leave_one_bin_delta_chi2_min,684.997165797,diagnostic
-leave_one_bin_delta_chi2_max,785.781884545,diagnostic
-robust_spectral_amplitude_ppm,1486.64555942,95th minus 5th percentile
-surface_gravity,4.25776279265,m s-2
-assumed_mean_molecular_weight,2.3,proton masses
-atmospheric_scale_height,982.82172904,km; using equilibrium temperature
-one_scale_height_transmission_amplitude,421.170836991,ppm
-robust_amplitude_in_scale_heights,3.52979225731,illustrative H2-He atmosphere
-
-test,setting,n_bins,correlated_fraction,correlation_length_micron,full_chi2,no_co2_chi2,delta_chi2_no_co2_minus_full
-adjacent-bin rebinning,factor 1,94,0.0,0.0,179.20751959887863,953.9862769684839,774.7787573696053
-adjacent-bin rebinning,factor 2,47,0.0,0.0,114.18984180225945,892.8762803139816,778.6864385117221
-adjacent-bin rebinning,factor 4,24,0.0,0.0,78.20440288248446,824.2915705636123,746.0871676811278
-adjacent-bin rebinning,factor 8,12,0.0,0.0,26.76862351001512,622.915830924889,596.1472074148738
-illustrative correlated covariance,amplitude 0.0 x median error; length 0.10 micron,94,0.0,0.1,179.20751959887855,953.986276968484,774.7787573696055
-illustrative correlated covariance,amplitude 0.5 x median error; length 0.10 micron,94,0.5,0.1,144.82702870042067,485.096586117521,340.2695574171003
-illustrative correlated covariance,amplitude 1.0 x median error; length 0.10 micron,94,1.0,0.1,110.38711109070192,245.51245386749414,135.12534277679222
-illustrative correlated covariance,amplitude 1.0 x median error; length 0.25 micron,94,1.0,0.25,128.4080509667583,266.9502478184401,138.5421968516818
+quantity,value,unit,interpretation
+archive_spectral_bins,94,count,all Eureka bins
+common_support_bins,93,count,entire bin supported by both models
+excluded_extrapolation_bins,1,count,excluded before comparison
+primary_delta_chi2,774.403154539,descriptive contrast,center sampling; mean asymmetric error
+multiverse_designs,60,count,sampling x error x factor x every origin
+multiverse_positive_fraction,1,fraction,preference for supplied full model
+multiverse_delta_min,559.630769201,descriptive contrast,declared multiverse
+multiverse_delta_median,699.695587555,descriptive contrast,declared multiverse
+multiverse_delta_max,780.350098934,descriptive contrast,declared multiverse
+covariance_grid_cells,20,count,amplitude x length grid
+covariance_delta_min,41.5334845741,descriptive contrast,declared covariance grid
+leave_one_bin_delta_min,684.772638363,descriptive contrast,all single-bin deletions
+block_deletion_delta_min,3.18986529686,descriptive contrast,all contiguous block deletions
+inside_4p1_4p6_delta,289.376606759,descriptive contrast,models refit inside interval
+outside_4p1_4p6_delta,6.03697353965,descriptive contrast,models refit outside interval
+surface_gravity,4.25776279265,m s-2,saved system parameters
+atmospheric_scale_height,982.82172904,km,illustrative mu=2.3
+one_scale_height_signal,421.170836991,ppm,illustrative
+robust_spectral_amplitude,1488.94279223,ppm,95th minus 5th percentile
+robust_amplitude_scale_heights,3.53524665399,illustrative scale heights,not composition
