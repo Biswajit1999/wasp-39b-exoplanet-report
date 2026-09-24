@@ -15,6 +15,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.integrate import trapezoid
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA, FIGURES = ROOT / "data" / "spectra", ROOT / "figures"
@@ -38,7 +39,7 @@ def _bin_average(left, right, model_wavelength, model_value):
     for lower, upper in zip(left, right):
         inside = model_wavelength[(model_wavelength > lower) & (model_wavelength < upper)]
         grid = np.concatenate(([lower], inside, [upper]))
-        result.append(np.trapz(np.interp(grid, model_wavelength, model_value), grid) / (upper - lower))
+        result.append(trapezoid(np.interp(grid, model_wavelength, model_value), grid) / (upper - lower))
     return np.asarray(result)
 
 
