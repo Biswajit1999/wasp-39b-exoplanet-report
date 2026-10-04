@@ -25,10 +25,6 @@ A low-density hot Saturn whose atmosphere became the first clear JWST exoplanet 
 
 **[Open the full report](https://biswajit1999.github.io/wasp-39b-exoplanet-report/)** — the live GitHub Pages version.
 
-<p align="center">
-  <img src="assets/research-maturity-before-after.svg" alt="Before and after research maturity rubric for the WASP-39 b report" width="900">
-</p>
-
 The before/after chart is a transparent repository rubric, not peer review. It
 scores source identity, model validity, sensitivity coverage, claim discipline,
 reproducibility, and evidence presentation against committed artifacts.
