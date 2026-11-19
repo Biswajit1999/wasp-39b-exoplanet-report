@@ -1,0 +1,91 @@
+{
+  "project": "WASP-39 b: Carbon Dioxide in a Puffy Hot Saturn",
+  "repository": "https://github.com/Biswajit1999/wasp-39b-exoplanet-report",
+  "files": [
+    {
+      "label": "Data source notes",
+      "path": "data/SOURCE.md",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Eureka transmission spectrum",
+      "path": "data/spectra/eureka_transmission_spectrum.txt",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Atmospheric evidence",
+      "path": "data/atmospheric_evidence.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "System parameters",
+      "path": "data/system_parameters.csv",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Tess2022112184951 s0051 0000000181949561 0223 s lc",
+      "path": "data/tess2022112184951-s0051-0000000181949561-0223-s_lc.fits",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Scchimeramodel",
+      "path": "data/spectra/scchimeramodel.txt",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Scchimeramodel no co2",
+      "path": "data/spectra/scchimeramodel_no_co2.txt",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Summary statistics",
+      "path": "figures/summary_statistics.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Spectrum statistics",
+      "path": "figures/spectrum_statistics.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Multisector statistics",
+      "path": "figures/multisector_statistics.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Spectral bin contributions",
+      "path": "figures/spectral_bin_contributions.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Spectral block deletions",
+      "path": "figures/spectral_block_deletions.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Spectral covariance grid",
+      "path": "figures/spectral_covariance_grid.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Wasp39b published spectrum",
+      "path": "figures/wasp39b_published_spectrum.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Molecular evidence",
+      "path": "figures/molecular_evidence.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Wasp39b depth consistency",
+      "path": "figures/wasp39b_depth_consistency.png",
+      "role": "Figures"
+    },
+    {
+      "label": "Wasp39b multisector transits",
+      "path": "figures/wasp39b_multisector_transits.png",
+      "role": "Figures"
+    }
+  ]
+}

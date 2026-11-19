@@ -1,0 +1,464 @@
+{
+  "schema": 1,
+  "project": "WASP-39 b: Carbon Dioxide in a Puffy Hot Saturn",
+  "repository": "https://github.com/Biswajit1999/wasp-39b-exoplanet-report",
+  "files": [
+    {
+      "label": "Data source notes",
+      "path": "data/SOURCE.md",
+      "role": "Data and provenance",
+      "bytes": 3993,
+      "sha256": "eb9ecc5910c6222935879a13920e21edb4a3ee880da6510187a8810c22c55ba8",
+      "hash_basis": "LF-normalised text",
+      "format": "MD"
+    },
+    {
+      "label": "Eureka transmission spectrum",
+      "path": "data/spectra/eureka_transmission_spectrum.txt",
+      "role": "Data and provenance",
+      "bytes": 10653,
+      "sha256": "18ab790d131d28f4ad97d5a19dc3c5787ecc12269685823bbfd0d38dfe8619a8",
+      "hash_basis": "LF-normalised text",
+      "format": "TXT"
+    },
+    {
+      "label": "Atmospheric evidence",
+      "path": "data/atmospheric_evidence.csv",
+      "role": "Data and provenance",
+      "bytes": 805,
+      "sha256": "47ab85812811017ef57a272b4072491c2083a18a1eac8d7fd3d6580e72c5deb6",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 5,
+      "columns": 6,
+      "headers": [
+        "species",
+        "status",
+        "evidence",
+        "basis",
+        "source_label",
+        "source_url"
+      ],
+      "preview": [
+        [
+          "CO2",
+          "reported detection",
+          "28.5 sigma",
+          "peer-reviewed retrieval",
+          "Alderson et al. 2023, Nature",
+          "https://doi.org/10.1038/s41586-022-05591-3"
+        ],
+        [
+          "H2O",
+          "reported detection",
+          "21.5 sigma",
+          "peer-reviewed retrieval",
+          "Alderson et al. 2023, Nature",
+          "https://doi.org/10.1038/s41586-022-05591-3"
+        ],
+        [
+          "SO2",
+          "reported evidence",
+          "4.8 sigma",
+          "peer-reviewed interpretation",
+          "Alderson et al. 2023, Nature",
+          "https://doi.org/10.1038/s41586-022-05591-3"
+        ],
+        [
+          "CO2 model sensitivity",
+          "repository diagnostic",
+          "Delta chi-square = 774.8",
+          "full versus no-CO2 supplied models; not a retrieval",
+          "Alderson et al. 2023, Nature",
+          "https://doi.org/10.1038/s41586-022-05591-3"
+        ]
+      ]
+    },
+    {
+      "label": "System parameters",
+      "path": "data/system_parameters.csv",
+      "role": "Data and provenance",
+      "bytes": 500,
+      "sha256": "afea2d03c59931e60b1e6c01cd076d327322abe84d3fd5d08c66a89b1192eb22",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 1,
+      "columns": 21,
+      "headers": [
+        "pl_name",
+        "hostname",
+        "ra",
+        "dec",
+        "pl_orbper",
+        "pl_tranmid",
+        "pl_trandur"
+      ],
+      "preview": [
+        [
+          "WASP-39 b",
+          "WASP-39",
+          "217.3266477",
+          "-3.4444994",
+          "4.0552941",
+          "2455342.96913",
+          "2.8032"
+        ]
+      ]
+    },
+    {
+      "label": "Tess2022112184951 s0051 0000000181949561 0223 s lc",
+      "path": "data/tess2022112184951-s0051-0000000181949561-0223-s_lc.fits",
+      "role": "Data and provenance",
+      "bytes": 1800000,
+      "sha256": "dc75775fde0187da7f058354635a90529e59128ecbfe683112024ad3e0c04ce8",
+      "hash_basis": "exact bytes",
+      "format": "FITS"
+    },
+    {
+      "label": "Scchimeramodel",
+      "path": "data/spectra/scchimeramodel.txt",
+      "role": "Data and provenance",
+      "bytes": 10985,
+      "sha256": "45d014400577a5208f9f699a7811c0cc95aeb2c4f308583db9e90297f35cca1d",
+      "hash_basis": "LF-normalised text",
+      "format": "TXT"
+    },
+    {
+      "label": "Scchimeramodel no co2",
+      "path": "data/spectra/scchimeramodel_no_co2.txt",
+      "role": "Data and provenance",
+      "bytes": 4778,
+      "sha256": "7d41ab15efb4350ecce93f7e646d86cf4bd0fdab559f567d8e3dac51374ff004",
+      "hash_basis": "LF-normalised text",
+      "format": "TXT"
+    },
+    {
+      "label": "Summary statistics",
+      "path": "figures/summary_statistics.csv",
+      "role": "Tables and numerical results",
+      "bytes": 1166,
+      "sha256": "c35a7ed8365d9b29462395d6d351f301eb43485d1cb32835ec14cbd55f8098ee",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 36,
+      "columns": 3,
+      "headers": [
+        "quantity",
+        "value",
+        "unit"
+      ],
+      "preview": [
+        [
+          "sector",
+          "51",
+          "TESS sector"
+        ],
+        [
+          "period_days",
+          "4.0552941",
+          "days; NASA Exoplanet Archive"
+        ],
+        [
+          "published_duration_hours",
+          "2.8032",
+          "hours; NASA Exoplanet Archive"
+        ],
+        [
+          "a_over_rstar",
+          "11.0561714164",
+          "fixed from saved a and stellar radius"
+        ]
+      ]
+    },
+    {
+      "label": "Spectrum statistics",
+      "path": "figures/spectrum_statistics.csv",
+      "role": "Tables and numerical results",
+      "bytes": 338,
+      "sha256": "15fd4749be36c614f663a3cf00bb4a97ff068fa37d507cbb4c36afd5f32b07b0",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 3,
+      "columns": 7,
+      "headers": [
+        "chi2",
+        "comparison",
+        "dof",
+        "mean",
+        "n",
+        "offset",
+        "p"
+      ],
+      "preview": [
+        [
+          "1089.6022214656668",
+          "weighted flat",
+          "93",
+          "21379.77458524741",
+          "94",
+          "",
+          "1.0580301644496441e-169"
+        ],
+        [
+          "179.18637534896123",
+          "ScCHIMERA full + fitted vertical offset",
+          "92",
+          "",
+          "93",
+          "-62.71232409044804",
+          "1.4413364529151033e-07"
+        ],
+        [
+          "953.5895298883139",
+          "ScCHIMERA remove CO2 + fitted vertical offset",
+          "92",
+          "",
+          "93",
+          "55.96471200679537",
+          "2.634626641694799e-143"
+        ]
+      ]
+    },
+    {
+      "label": "Multisector statistics",
+      "path": "figures/multisector_statistics.csv",
+      "role": "Tables and numerical results",
+      "bytes": 348,
+      "sha256": "64f06ec98ab94b4a16929ab66d14fe17cc653723bc2f2c1e6e666923bdfc6dea",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 1,
+      "columns": 13,
+      "headers": [
+        "sector",
+        "filename",
+        "transit_events",
+        "n_points",
+        "transit_supported",
+        "delta_bic",
+        "timing_shift_hours"
+      ],
+      "preview": [
+        [
+          "51",
+          "tess2022112184951-s0051-0000000181949561-0223-s_lc.fits",
+          "4",
+          "1572",
+          "True",
+          "12394.69037",
+          "-0.3603564129"
+        ]
+      ]
+    },
+    {
+      "label": "Spectral bin contributions",
+      "path": "figures/spectral_bin_contributions.csv",
+      "role": "Tables and numerical results",
+      "bytes": 8599,
+      "sha256": "6e84f0e2437adfafe2d9f6454f39691882a573db90243a9b78b29efacc73c6cd",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 93,
+      "columns": 9,
+      "headers": [
+        "wavelength_micron",
+        "bin_width_micron",
+        "depth_ppm",
+        "error_ppm",
+        "full_model_with_offset_ppm",
+        "no_co2_model_with_offset_ppm",
+        "delta_chi2_contribution"
+      ],
+      "preview": [
+        [
+          "3.032",
+          "0.012",
+          "21716.45249",
+          "79.69166994",
+          "21571.3497",
+          "21668.03859",
+          "-2.946246935"
+        ],
+        [
+          "3.056",
+          "0.012",
+          "21512.85644",
+          "70.52457662",
+          "21549.0229",
+          "21646.82158",
+          "3.345314927"
+        ],
+        [
+          "3.0795",
+          "0.0115",
+          "21558.06306",
+          "76.41052997",
+          "21486.31758",
+          "21611.97947",
+          "-0.3837298647"
+        ],
+        [
+          "3.1025",
+          "0.0115",
+          "21456.27903",
+          "103.4909711",
+          "21458.43543",
+          "21578.18933",
+          "1.387202658"
+        ]
+      ]
+    },
+    {
+      "label": "Spectral block deletions",
+      "path": "figures/spectral_block_deletions.csv",
+      "role": "Tables and numerical results",
+      "bytes": 12072,
+      "sha256": "3c4b3ceb4d1673e8fe25d3cfc57b44929a777c95c56ada77ac829f6f769cbde3",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 278,
+      "columns": 7,
+      "headers": [
+        "requested_width_micron",
+        "center_micron",
+        "deleted_min_micron",
+        "deleted_max_micron",
+        "n_deleted",
+        "n_retained",
+        "delta_chi2_no_co2_minus_full"
+      ],
+      "preview": [
+        [
+          "0.1",
+          "3.032",
+          "3.032",
+          "3.0795",
+          "3",
+          "90",
+          "774.382168145"
+        ],
+        [
+          "0.1",
+          "3.056",
+          "3.032",
+          "3.1025",
+          "4",
+          "89",
+          "772.877038777"
+        ],
+        [
+          "0.1",
+          "3.0795",
+          "3.032",
+          "3.126",
+          "5",
+          "88",
+          "766.655720822"
+        ],
+        [
+          "0.1",
+          "3.1025",
+          "3.056",
+          "3.1495",
+          "5",
+          "88",
+          "765.774759213"
+        ]
+      ]
+    },
+    {
+      "label": "Spectral covariance grid",
+      "path": "figures/spectral_covariance_grid.csv",
+      "role": "Tables and numerical results",
+      "bytes": 1799,
+      "sha256": "1d32fd531071e878264f8d6dc023d127154c889423ba1800f72cedc3ae7500fb",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 20,
+      "columns": 8,
+      "headers": [
+        "correlated_amplitude_over_median_error",
+        "correlation_length_micron",
+        "n_bins",
+        "covariance_condition_number",
+        "covariance_min_eigenvalue",
+        "full_chi2",
+        "no_co2_chi2"
+      ],
+      "preview": [
+        [
+          "0.0",
+          "0.05",
+          "93",
+          "7.34752673647",
+          "4973.71590711",
+          "179.186375349",
+          "953.589529888"
+        ],
+        [
+          "0.0",
+          "0.1",
+          "93",
+          "7.34752673647",
+          "4973.71590711",
+          "179.186375349",
+          "953.589529888"
+        ],
+        [
+          "0.0",
+          "0.25",
+          "93",
+          "7.34752673647",
+          "4973.71590711",
+          "179.186375349",
+          "953.589529888"
+        ],
+        [
+          "0.0",
+          "0.5",
+          "93",
+          "7.34752673647",
+          "4973.71590711",
+          "179.186375349",
+          "953.589529888"
+        ]
+      ]
+    },
+    {
+      "label": "Wasp39b published spectrum",
+      "path": "figures/wasp39b_published_spectrum.png",
+      "role": "Figures",
+      "bytes": 144315,
+      "sha256": "ca36d671579f2c80af3500f72b711a37763bc6834336e494fdeec040054f92c5",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Molecular evidence",
+      "path": "figures/molecular_evidence.png",
+      "role": "Figures",
+      "bytes": 108778,
+      "sha256": "19a288681397d8bb1ae0df02c5eb504b7432fe7a03795fcd3a37c5c86233e5d1",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Wasp39b depth consistency",
+      "path": "figures/wasp39b_depth_consistency.png",
+      "role": "Figures",
+      "bytes": 71997,
+      "sha256": "2b840e204e37f1d3a468af440d4b50fe936b67a3675cdec68a8c76b7ca93e8c6",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    },
+    {
+      "label": "Wasp39b multisector transits",
+      "path": "figures/wasp39b_multisector_transits.png",
+      "role": "Figures",
+      "bytes": 76831,
+      "sha256": "bfee55fa57ba64ea50260b2286f47d4a285b876ae6187c7c1cdca47e6aa564d5",
+      "hash_basis": "exact bytes",
+      "format": "PNG"
+    }
+  ]
+}
